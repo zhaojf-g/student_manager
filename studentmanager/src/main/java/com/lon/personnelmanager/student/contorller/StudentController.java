@@ -3,16 +3,19 @@ package com.lon.personnelmanager.student.contorller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+import com.lon.personnelmanager.common.Result.ResultData;
 import com.lon.personnelmanager.common.page.PageBean;
 import com.lon.personnelmanager.student.entity.Student;
 import com.lon.personnelmanager.student.servie.StudentService;
 import com.lon.personnelmanager.user.entity.User;
 
-@Controller
+@RestController
+@RequestMapping("/student")
 public class StudentController {
 
 	@Autowired
@@ -25,10 +28,12 @@ public class StudentController {
 	 * @param page
 	 * @return
 	 */
-	@RequestMapping("/home")
-	public String getStudentList(Model model,User user,PageBean page) {
+	@GetMapping("/")
+	public ResultData getStudentList(Model model,User user,PageBean page) {
+		ResultData result = new ResultData();
 		List<Student> list = studentService.getStudentList(user);
-		return "home";
+		result.setData(list);
+		return result;
 	}
 	
 }
