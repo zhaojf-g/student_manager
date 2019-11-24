@@ -22,4 +22,32 @@ public class StudentServiceImpl implements StudentService{
 		return list;
 	}
 
+	@Override
+	public Student insertStudent(Student student) {
+		int i = mapper.insert(student);
+		if(i>0) {
+			return student;
+		}
+		return null;
+	}
+
+	@Override
+	public Student updateStudent(Student student) {
+		int i = mapper.updateByPrimaryKey(student);
+		if(i>0) {
+			return student;
+		}
+		return null;
+	}
+
+	@Override
+	public Integer deleteStudent(Integer id) {
+		int i = mapper.deleteByPrimaryKey(id);
+		if(i>0) {
+			return i;
+		}
+		return 0;
+	}
+	
+
 }

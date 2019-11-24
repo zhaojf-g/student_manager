@@ -8,12 +8,13 @@
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="pas" jdbcType="VARCHAR" property="pas" />
     <result column="dzbh" jdbcType="VARCHAR" property="dzbh" />
+    <result column="xzbh" jdbcType="VARCHAR" property="xzbh" />
     <result column="zy" jdbcType="VARCHAR" property="zy" />
     <result column="bz" jdbcType="VARCHAR" property="bz" />
     <result column="zt" jdbcType="VARCHAR" property="zt" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, user_id, user_type, name, pas, dzbh, zy, bz, zt
+    id, user_id, user_type, name, pas, dzbh, xzbh, zy, bz, zt
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -27,11 +28,11 @@
   </delete>
   <insert id="insert" parameterType="com.lon.personnelmanager.user.entity.User">
     insert into M_USER (id, user_id, user_type, 
-      name, pas, dzbh, zy, 
-      bz, zt)
+      name, pas, dzbh, xzbh, 
+      zy, bz, zt)
     values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=VARCHAR}, #{userType,jdbcType=VARCHAR}, 
-      #{name,jdbcType=VARCHAR}, #{pas,jdbcType=VARCHAR}, #{dzbh,jdbcType=VARCHAR}, #{zy,jdbcType=VARCHAR}, 
-      #{bz,jdbcType=VARCHAR}, #{zt,jdbcType=VARCHAR})
+      #{name,jdbcType=VARCHAR}, #{pas,jdbcType=VARCHAR}, #{dzbh,jdbcType=VARCHAR}, #{xzbh,jdbcType=VARCHAR}, 
+      #{zy,jdbcType=VARCHAR}, #{bz,jdbcType=VARCHAR}, #{zt,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.lon.personnelmanager.user.entity.User">
     insert into M_USER
@@ -53,6 +54,9 @@
       </if>
       <if test="dzbh != null">
         dzbh,
+      </if>
+      <if test="xzbh != null">
+        xzbh,
       </if>
       <if test="zy != null">
         zy,
@@ -83,6 +87,9 @@
       <if test="dzbh != null">
         #{dzbh,jdbcType=VARCHAR},
       </if>
+      <if test="xzbh != null">
+        #{xzbh,jdbcType=VARCHAR},
+      </if>
       <if test="zy != null">
         #{zy,jdbcType=VARCHAR},
       </if>
@@ -112,6 +119,9 @@
       <if test="dzbh != null">
         dzbh = #{dzbh,jdbcType=VARCHAR},
       </if>
+      <if test="xzbh != null">
+        xzbh = #{xzbh,jdbcType=VARCHAR},
+      </if>
       <if test="zy != null">
         zy = #{zy,jdbcType=VARCHAR},
       </if>
@@ -131,6 +141,7 @@
       name = #{name,jdbcType=VARCHAR},
       pas = #{pas,jdbcType=VARCHAR},
       dzbh = #{dzbh,jdbcType=VARCHAR},
+      xzbh = #{xzbh,jdbcType=VARCHAR},
       zy = #{zy,jdbcType=VARCHAR},
       bz = #{bz,jdbcType=VARCHAR},
       zt = #{zt,jdbcType=VARCHAR}
@@ -145,4 +156,5 @@
     and user_id = #{userId,jdbcType=VARCHAR}
     and pas = #{pas,jdbcType=VARCHAR}
   </select>
+  
 </mapper>

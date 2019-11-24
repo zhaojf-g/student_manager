@@ -27,7 +27,6 @@ public class Swagger2Config {
                 .title("学员管理系统")
                 .description("学员管理系统接口Api")
                 .termsOfServiceUrl("")
-                .contact("devteam")
                 .version("1.0")
                 .build();
     }

@@ -13,5 +13,25 @@ public interface StudentService {
 	 * @return
 	 */
 	List<Student> getStudentList(User user);
-
+	
+	/**
+	 * 添加学生
+	 * @param user
+	 * @return
+	 */
+	Student insertStudent(Student student);
+	
+	/**
+	 * 修改学生
+	 * @param student
+	 * @return
+	 */
+	Student updateStudent(Student student);
+	
+	/**
+	 * 删除学生
+	 * @param id
+	 * @return
+	 */
+	Integer deleteStudent(Integer id);
 }

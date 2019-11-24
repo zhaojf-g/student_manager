@@ -4,10 +4,12 @@
   <resultMap id="BaseResultMap" type="com.lon.personnelmanager.student.entity.Student">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="zym" jdbcType="VARCHAR" property="zym" />
+    <result column="dzbh" jdbcType="VARCHAR" property="dzbh" />
     <result column="xzbh" jdbcType="VARCHAR" property="xzbh" />
     <result column="xm" jdbcType="VARCHAR" property="xm" />
     <result column="xb" jdbcType="VARCHAR" property="xb" />
     <result column="xybh" jdbcType="VARCHAR" property="xybh" />
+    <result column="zt" jdbcType="VARCHAR" property="zt" />
     <result column="xxfs" jdbcType="VARCHAR" property="xxfs" />
     <result column="csnf" jdbcType="VARCHAR" property="csnf" />
     <result column="sf" jdbcType="VARCHAR" property="sf" />
@@ -16,7 +18,6 @@
     <result column="zy" jdbcType="VARCHAR" property="zy" />
     <result column="fxgw" jdbcType="VARCHAR" property="fxgw" />
     <result column="sfzsxy" jdbcType="VARCHAR" property="sfzsxy" />
-    <result column="yxzy" jdbcType="VARCHAR" property="yxzy" />
     <result column="tel" jdbcType="VARCHAR" property="tel" />
     <result column="mail" jdbcType="VARCHAR" property="mail" />
     <result column="dz" jdbcType="VARCHAR" property="dz" />
@@ -34,11 +35,20 @@
     <result column="lxy" jdbcType="VARCHAR" property="lxy" />
     <result column="gxfs" jdbcType="VARCHAR" property="gxfs" />
     <result column="bz" jdbcType="VARCHAR" property="bz" />
+    <result column="dlyhbh" jdbcType="VARCHAR" property="dlyhbh" />
+    <result column="dlsj" jdbcType="TIMESTAMP" property="dlsj" />
+    <result column="zddzh" jdbcType="VARCHAR" property="zddzh" />
+    <result column="zzbz" jdbcType="VARCHAR" property="zzbz" />
+    <result column="by1" jdbcType="VARCHAR" property="by1" />
+    <result column="by2" jdbcType="VARCHAR" property="by2" />
+    <result column="by3" jdbcType="VARCHAR" property="by3" />
+    <result column="by4" jdbcType="VARCHAR" property="by4" />
+    <result column="by5" jdbcType="VARCHAR" property="by5" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, zym, xzbh, xm, xb, xybh, xxfs, csnf, sf, qx, whcd, zy, fxgw, sfzsxy, yxzy, tel, 
-    mail, dz, gxsfkn, klyy, tc, cjyy, zsjz, zsgd, sfgy, gysj, sftgdc, qd, jl, lxy, gxfs, 
-    bz
+    id, zym, dzbh, xzbh, xm, xb, xybh, zt, xxfs, csnf, sf, qx, whcd, zy, fxgw, sfzsxy, 
+    tel, mail, dz, gxsfkn, klyy, tc, cjyy, zsjz, zsgd, sfgy, gysj, sftgdc, qd, jl, lxy, 
+    gxfs, bz, dlyhbh, dlsj, zddzh, zzbz, by1, by2, by3, by4, by5
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -51,24 +61,30 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.lon.personnelmanager.student.entity.Student">
-    insert into M_XY (id, zym, xzbh, 
-      xm, xb, xybh, xxfs, 
-      csnf, sf, qx, whcd, 
-      zy, fxgw, sfzsxy, yxzy, 
-      tel, mail, dz, gxsfkn, 
-      klyy, tc, cjyy, zsjz, 
-      zsgd, sfgy, gysj, sftgdc, 
-      qd, jl, lxy, gxfs, 
-      bz)
-    values (#{id,jdbcType=INTEGER}, #{zym,jdbcType=VARCHAR}, #{xzbh,jdbcType=VARCHAR}, 
-      #{xm,jdbcType=VARCHAR}, #{xb,jdbcType=VARCHAR}, #{xybh,jdbcType=VARCHAR}, #{xxfs,jdbcType=VARCHAR}, 
-      #{csnf,jdbcType=VARCHAR}, #{sf,jdbcType=VARCHAR}, #{qx,jdbcType=VARCHAR}, #{whcd,jdbcType=VARCHAR}, 
-      #{zy,jdbcType=VARCHAR}, #{fxgw,jdbcType=VARCHAR}, #{sfzsxy,jdbcType=VARCHAR}, #{yxzy,jdbcType=VARCHAR}, 
-      #{tel,jdbcType=VARCHAR}, #{mail,jdbcType=VARCHAR}, #{dz,jdbcType=VARCHAR}, #{gxsfkn,jdbcType=VARCHAR}, 
-      #{klyy,jdbcType=VARCHAR}, #{tc,jdbcType=VARCHAR}, #{cjyy,jdbcType=VARCHAR}, #{zsjz,jdbcType=VARCHAR}, 
-      #{zsgd,jdbcType=VARCHAR}, #{sfgy,jdbcType=VARCHAR}, #{gysj,jdbcType=VARCHAR}, #{sftgdc,jdbcType=VARCHAR}, 
-      #{qd,jdbcType=VARCHAR}, #{jl,jdbcType=VARCHAR}, #{lxy,jdbcType=VARCHAR}, #{gxfs,jdbcType=VARCHAR}, 
-      #{bz,jdbcType=VARCHAR})
+    insert into M_XY (id, zym, dzbh, 
+      xzbh, xm, xb, xybh, 
+      zt, xxfs, csnf, sf, 
+      qx, whcd, zy, fxgw, 
+      sfzsxy, tel, mail, 
+      dz, gxsfkn, klyy, tc, 
+      cjyy, zsjz, zsgd, sfgy, 
+      gysj, sftgdc, qd, jl, 
+      lxy, gxfs, bz, dlyhbh, 
+      dlsj, zddzh, zzbz, 
+      by1, by2, by3, by4, 
+      by5)
+    values (#{id,jdbcType=INTEGER}, #{zym,jdbcType=VARCHAR}, #{dzbh,jdbcType=VARCHAR}, 
+      #{xzbh,jdbcType=VARCHAR}, #{xm,jdbcType=VARCHAR}, #{xb,jdbcType=VARCHAR}, #{xybh,jdbcType=VARCHAR}, 
+      #{zt,jdbcType=VARCHAR}, #{xxfs,jdbcType=VARCHAR}, #{csnf,jdbcType=VARCHAR}, #{sf,jdbcType=VARCHAR}, 
+      #{qx,jdbcType=VARCHAR}, #{whcd,jdbcType=VARCHAR}, #{zy,jdbcType=VARCHAR}, #{fxgw,jdbcType=VARCHAR}, 
+      #{sfzsxy,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, #{mail,jdbcType=VARCHAR}, 
+      #{dz,jdbcType=VARCHAR}, #{gxsfkn,jdbcType=VARCHAR}, #{klyy,jdbcType=VARCHAR}, #{tc,jdbcType=VARCHAR}, 
+      #{cjyy,jdbcType=VARCHAR}, #{zsjz,jdbcType=VARCHAR}, #{zsgd,jdbcType=VARCHAR}, #{sfgy,jdbcType=VARCHAR}, 
+      #{gysj,jdbcType=VARCHAR}, #{sftgdc,jdbcType=VARCHAR}, #{qd,jdbcType=VARCHAR}, #{jl,jdbcType=VARCHAR}, 
+      #{lxy,jdbcType=VARCHAR}, #{gxfs,jdbcType=VARCHAR}, #{bz,jdbcType=VARCHAR}, #{dlyhbh,jdbcType=VARCHAR}, 
+      #{dlsj,jdbcType=TIMESTAMP}, #{zddzh,jdbcType=VARCHAR}, #{zzbz,jdbcType=VARCHAR}, 
+      #{by1,jdbcType=VARCHAR}, #{by2,jdbcType=VARCHAR}, #{by3,jdbcType=VARCHAR}, #{by4,jdbcType=VARCHAR}, 
+      #{by5,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.lon.personnelmanager.student.entity.Student">
     insert into M_XY
@@ -78,6 +94,9 @@
       </if>
       <if test="zym != null">
         zym,
+      </if>
+      <if test="dzbh != null">
+        dzbh,
       </if>
       <if test="xzbh != null">
         xzbh,
@@ -90,6 +109,9 @@
       </if>
       <if test="xybh != null">
         xybh,
+      </if>
+      <if test="zt != null">
+        zt,
       </if>
       <if test="xxfs != null">
         xxfs,
@@ -114,9 +136,6 @@
       </if>
       <if test="sfzsxy != null">
         sfzsxy,
-      </if>
-      <if test="yxzy != null">
-        yxzy,
       </if>
       <if test="tel != null">
         tel,
@@ -169,6 +188,33 @@
       <if test="bz != null">
         bz,
       </if>
+      <if test="dlyhbh != null">
+        dlyhbh,
+      </if>
+      <if test="dlsj != null">
+        dlsj,
+      </if>
+      <if test="zddzh != null">
+        zddzh,
+      </if>
+      <if test="zzbz != null">
+        zzbz,
+      </if>
+      <if test="by1 != null">
+        by1,
+      </if>
+      <if test="by2 != null">
+        by2,
+      </if>
+      <if test="by3 != null">
+        by3,
+      </if>
+      <if test="by4 != null">
+        by4,
+      </if>
+      <if test="by5 != null">
+        by5,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -176,6 +222,9 @@
       </if>
       <if test="zym != null">
         #{zym,jdbcType=VARCHAR},
+      </if>
+      <if test="dzbh != null">
+        #{dzbh,jdbcType=VARCHAR},
       </if>
       <if test="xzbh != null">
         #{xzbh,jdbcType=VARCHAR},
@@ -188,6 +237,9 @@
       </if>
       <if test="xybh != null">
         #{xybh,jdbcType=VARCHAR},
+      </if>
+      <if test="zt != null">
+        #{zt,jdbcType=VARCHAR},
       </if>
       <if test="xxfs != null">
         #{xxfs,jdbcType=VARCHAR},
@@ -212,9 +264,6 @@
       </if>
       <if test="sfzsxy != null">
         #{sfzsxy,jdbcType=VARCHAR},
-      </if>
-      <if test="yxzy != null">
-        #{yxzy,jdbcType=VARCHAR},
       </if>
       <if test="tel != null">
         #{tel,jdbcType=VARCHAR},
@@ -267,6 +316,33 @@
       <if test="bz != null">
         #{bz,jdbcType=VARCHAR},
       </if>
+      <if test="dlyhbh != null">
+        #{dlyhbh,jdbcType=VARCHAR},
+      </if>
+      <if test="dlsj != null">
+        #{dlsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="zddzh != null">
+        #{zddzh,jdbcType=VARCHAR},
+      </if>
+      <if test="zzbz != null">
+        #{zzbz,jdbcType=VARCHAR},
+      </if>
+      <if test="by1 != null">
+        #{by1,jdbcType=VARCHAR},
+      </if>
+      <if test="by2 != null">
+        #{by2,jdbcType=VARCHAR},
+      </if>
+      <if test="by3 != null">
+        #{by3,jdbcType=VARCHAR},
+      </if>
+      <if test="by4 != null">
+        #{by4,jdbcType=VARCHAR},
+      </if>
+      <if test="by5 != null">
+        #{by5,jdbcType=VARCHAR},
+      </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.lon.personnelmanager.student.entity.Student">
@@ -274,6 +350,9 @@
     <set>
       <if test="zym != null">
         zym = #{zym,jdbcType=VARCHAR},
+      </if>
+      <if test="dzbh != null">
+        dzbh = #{dzbh,jdbcType=VARCHAR},
       </if>
       <if test="xzbh != null">
         xzbh = #{xzbh,jdbcType=VARCHAR},
@@ -286,6 +365,9 @@
       </if>
       <if test="xybh != null">
         xybh = #{xybh,jdbcType=VARCHAR},
+      </if>
+      <if test="zt != null">
+        zt = #{zt,jdbcType=VARCHAR},
       </if>
       <if test="xxfs != null">
         xxfs = #{xxfs,jdbcType=VARCHAR},
@@ -310,9 +392,6 @@
       </if>
       <if test="sfzsxy != null">
         sfzsxy = #{sfzsxy,jdbcType=VARCHAR},
-      </if>
-      <if test="yxzy != null">
-        yxzy = #{yxzy,jdbcType=VARCHAR},
       </if>
       <if test="tel != null">
         tel = #{tel,jdbcType=VARCHAR},
@@ -365,16 +444,45 @@
       <if test="bz != null">
         bz = #{bz,jdbcType=VARCHAR},
       </if>
+      <if test="dlyhbh != null">
+        dlyhbh = #{dlyhbh,jdbcType=VARCHAR},
+      </if>
+      <if test="dlsj != null">
+        dlsj = #{dlsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="zddzh != null">
+        zddzh = #{zddzh,jdbcType=VARCHAR},
+      </if>
+      <if test="zzbz != null">
+        zzbz = #{zzbz,jdbcType=VARCHAR},
+      </if>
+      <if test="by1 != null">
+        by1 = #{by1,jdbcType=VARCHAR},
+      </if>
+      <if test="by2 != null">
+        by2 = #{by2,jdbcType=VARCHAR},
+      </if>
+      <if test="by3 != null">
+        by3 = #{by3,jdbcType=VARCHAR},
+      </if>
+      <if test="by4 != null">
+        by4 = #{by4,jdbcType=VARCHAR},
+      </if>
+      <if test="by5 != null">
+        by5 = #{by5,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.lon.personnelmanager.student.entity.Student">
     update M_XY
     set zym = #{zym,jdbcType=VARCHAR},
+      dzbh = #{dzbh,jdbcType=VARCHAR},
       xzbh = #{xzbh,jdbcType=VARCHAR},
       xm = #{xm,jdbcType=VARCHAR},
       xb = #{xb,jdbcType=VARCHAR},
       xybh = #{xybh,jdbcType=VARCHAR},
+      zt = #{zt,jdbcType=VARCHAR},
       xxfs = #{xxfs,jdbcType=VARCHAR},
       csnf = #{csnf,jdbcType=VARCHAR},
       sf = #{sf,jdbcType=VARCHAR},
@@ -383,7 +491,6 @@
       zy = #{zy,jdbcType=VARCHAR},
       fxgw = #{fxgw,jdbcType=VARCHAR},
       sfzsxy = #{sfzsxy,jdbcType=VARCHAR},
-      yxzy = #{yxzy,jdbcType=VARCHAR},
       tel = #{tel,jdbcType=VARCHAR},
       mail = #{mail,jdbcType=VARCHAR},
       dz = #{dz,jdbcType=VARCHAR},
@@ -400,7 +507,16 @@
       jl = #{jl,jdbcType=VARCHAR},
       lxy = #{lxy,jdbcType=VARCHAR},
       gxfs = #{gxfs,jdbcType=VARCHAR},
-      bz = #{bz,jdbcType=VARCHAR}
+      bz = #{bz,jdbcType=VARCHAR},
+      dlyhbh = #{dlyhbh,jdbcType=VARCHAR},
+      dlsj = #{dlsj,jdbcType=TIMESTAMP},
+      zddzh = #{zddzh,jdbcType=VARCHAR},
+      zzbz = #{zzbz,jdbcType=VARCHAR},
+      by1 = #{by1,jdbcType=VARCHAR},
+      by2 = #{by2,jdbcType=VARCHAR},
+      by3 = #{by3,jdbcType=VARCHAR},
+      by4 = #{by4,jdbcType=VARCHAR},
+      by5 = #{by5,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
   
@@ -408,5 +524,13 @@
     select 
     <include refid="Base_Column_List" />
     from M_XY
+    where 1=1
+    and (
+    	xzbh like concat(#{xzbh},'%')
+    	or
+    	#{userType} = 0
+    	or
+    	#{userType} = 1
+    	)
   </select>
 </mapper>

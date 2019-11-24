@@ -19,6 +19,8 @@ public class User implements Serializable {
 
     private String dzbh;
 
+    private String xzbh;
+
     private String zy;
 
     private String bz;
@@ -75,6 +77,14 @@ public class User implements Serializable {
         this.dzbh = dzbh;
     }
 
+    public String getXzbh() {
+        return xzbh;
+    }
+
+    public void setXzbh(String xzbh) {
+        this.xzbh = xzbh;
+    }
+
     public String getZy() {
         return zy;
     }
@@ -98,4 +108,5 @@ public class User implements Serializable {
     public void setZt(String zt) {
         this.zt = zt;
     }
+    
 }

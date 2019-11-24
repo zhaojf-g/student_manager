@@ -1,6 +1,7 @@
 package com.lon.personnelmanager.student.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * M_XY
@@ -11,6 +12,8 @@ public class Student implements Serializable {
 
     private String zym;
 
+    private String dzbh;
+
     private String xzbh;
 
     private String xm;
@@ -18,6 +21,8 @@ public class Student implements Serializable {
     private String xb;
 
     private String xybh;
+
+    private String zt;
 
     private String xxfs;
 
@@ -34,8 +39,6 @@ public class Student implements Serializable {
     private String fxgw;
 
     private String sfzsxy;
-
-    private String yxzy;
 
     private String tel;
 
@@ -71,6 +74,24 @@ public class Student implements Serializable {
 
     private String bz;
 
+    private String dlyhbh;
+
+    private Date dlsj;
+
+    private String zddzh;
+
+    private String zzbz;
+
+    private String by1;
+
+    private String by2;
+
+    private String by3;
+
+    private String by4;
+
+    private String by5;
+
     private static final long serialVersionUID = 1L;
 
     public Integer getId() {
@@ -87,6 +108,14 @@ public class Student implements Serializable {
 
     public void setZym(String zym) {
         this.zym = zym;
+    }
+
+    public String getDzbh() {
+        return dzbh;
+    }
+
+    public void setDzbh(String dzbh) {
+        this.dzbh = dzbh;
     }
 
     public String getXzbh() {
@@ -119,6 +148,14 @@ public class Student implements Serializable {
 
     public void setXybh(String xybh) {
         this.xybh = xybh;
+    }
+
+    public String getZt() {
+        return zt;
+    }
+
+    public void setZt(String zt) {
+        this.zt = zt;
     }
 
     public String getXxfs() {
@@ -183,14 +220,6 @@ public class Student implements Serializable {
 
     public void setSfzsxy(String sfzsxy) {
         this.sfzsxy = sfzsxy;
-    }
-
-    public String getYxzy() {
-        return yxzy;
-    }
-
-    public void setYxzy(String yxzy) {
-        this.yxzy = yxzy;
     }
 
     public String getTel() {
@@ -327,5 +356,77 @@ public class Student implements Serializable {
 
     public void setBz(String bz) {
         this.bz = bz;
+    }
+
+    public String getDlyhbh() {
+        return dlyhbh;
+    }
+
+    public void setDlyhbh(String dlyhbh) {
+        this.dlyhbh = dlyhbh;
+    }
+
+    public Date getDlsj() {
+        return dlsj;
+    }
+
+    public void setDlsj(Date dlsj) {
+        this.dlsj = dlsj;
+    }
+
+    public String getZddzh() {
+        return zddzh;
+    }
+
+    public void setZddzh(String zddzh) {
+        this.zddzh = zddzh;
+    }
+
+    public String getZzbz() {
+        return zzbz;
+    }
+
+    public void setZzbz(String zzbz) {
+        this.zzbz = zzbz;
+    }
+
+    public String getBy1() {
+        return by1;
+    }
+
+    public void setBy1(String by1) {
+        this.by1 = by1;
+    }
+
+    public String getBy2() {
+        return by2;
+    }
+
+    public void setBy2(String by2) {
+        this.by2 = by2;
+    }
+
+    public String getBy3() {
+        return by3;
+    }
+
+    public void setBy3(String by3) {
+        this.by3 = by3;
+    }
+
+    public String getBy4() {
+        return by4;
+    }
+
+    public void setBy4(String by4) {
+        this.by4 = by4;
+    }
+
+    public String getBy5() {
+        return by5;
+    }
+
+    public void setBy5(String by5) {
+        this.by5 = by5;
     }
 }
