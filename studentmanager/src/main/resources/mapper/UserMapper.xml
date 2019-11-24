@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lon.personnelmanager.user.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.lon.personnelmanager.user.entity.User">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="user_type" jdbcType="VARCHAR" property="userType" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="pas" jdbcType="VARCHAR" property="pas" />
+    <result column="dzbh" jdbcType="VARCHAR" property="dzbh" />
+    <result column="zy" jdbcType="VARCHAR" property="zy" />
+    <result column="bz" jdbcType="VARCHAR" property="bz" />
+    <result column="zt" jdbcType="VARCHAR" property="zt" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_id, user_type, name, pas, dzbh, zy, bz, zt
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from M_USER
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from M_USER
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.lon.personnelmanager.user.entity.User">
+    insert into M_USER (id, user_id, user_type, 
+      name, pas, dzbh, zy, 
+      bz, zt)
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=VARCHAR}, #{userType,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{pas,jdbcType=VARCHAR}, #{dzbh,jdbcType=VARCHAR}, #{zy,jdbcType=VARCHAR}, 
+      #{bz,jdbcType=VARCHAR}, #{zt,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lon.personnelmanager.user.entity.User">
+    insert into M_USER
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="userType != null">
+        user_type,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="pas != null">
+        pas,
+      </if>
+      <if test="dzbh != null">
+        dzbh,
+      </if>
+      <if test="zy != null">
+        zy,
+      </if>
+      <if test="bz != null">
+        bz,
+      </if>
+      <if test="zt != null">
+        zt,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="userType != null">
+        #{userType,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="pas != null">
+        #{pas,jdbcType=VARCHAR},
+      </if>
+      <if test="dzbh != null">
+        #{dzbh,jdbcType=VARCHAR},
+      </if>
+      <if test="zy != null">
+        #{zy,jdbcType=VARCHAR},
+      </if>
+      <if test="bz != null">
+        #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="zt != null">
+        #{zt,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lon.personnelmanager.user.entity.User">
+    update M_USER
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="userType != null">
+        user_type = #{userType,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="pas != null">
+        pas = #{pas,jdbcType=VARCHAR},
+      </if>
+      <if test="dzbh != null">
+        dzbh = #{dzbh,jdbcType=VARCHAR},
+      </if>
+      <if test="zy != null">
+        zy = #{zy,jdbcType=VARCHAR},
+      </if>
+      <if test="bz != null">
+        bz = #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="zt != null">
+        zt = #{zt,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lon.personnelmanager.user.entity.User">
+    update M_USER
+    set user_id = #{userId,jdbcType=VARCHAR},
+      user_type = #{userType,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      pas = #{pas,jdbcType=VARCHAR},
+      dzbh = #{dzbh,jdbcType=VARCHAR},
+      zy = #{zy,jdbcType=VARCHAR},
+      bz = #{bz,jdbcType=VARCHAR},
+      zt = #{zt,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <select id="login" parameterType="com.lon.personnelmanager.user.entity.User" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from M_USER
+    where 1=1
+    and user_id = #{userId,jdbcType=VARCHAR}
+    and pas = #{pas,jdbcType=VARCHAR}
+  </select>
+</mapper>

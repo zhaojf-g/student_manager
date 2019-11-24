@@ -1,0 +1,23 @@
+server:
+  port: 22510
+
+spring:
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://188.131.234.5:3306/student_manager?useUnicode=true&characterEncoding=utf-8&useSSL=true
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+
+mybatis:
+  #config-location: classpath:mybatis-config.xml
+  mapper-locations: classpath:mapper/*.xml
+
+#pagehelper
+pagehelper:
+  helper-dialect: mysql
+  params: count=countSql
+  reasonable: true
+  support-methods-arguments: true

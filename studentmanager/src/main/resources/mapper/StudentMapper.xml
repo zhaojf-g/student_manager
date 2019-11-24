@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lon.personnelmanager.student.mapper.StudentMapper">
+  <resultMap id="BaseResultMap" type="com.lon.personnelmanager.student.entity.Student">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="zym" jdbcType="VARCHAR" property="zym" />
+    <result column="xzbh" jdbcType="VARCHAR" property="xzbh" />
+    <result column="xm" jdbcType="VARCHAR" property="xm" />
+    <result column="xb" jdbcType="VARCHAR" property="xb" />
+    <result column="xybh" jdbcType="VARCHAR" property="xybh" />
+    <result column="xxfs" jdbcType="VARCHAR" property="xxfs" />
+    <result column="csnf" jdbcType="VARCHAR" property="csnf" />
+    <result column="sf" jdbcType="VARCHAR" property="sf" />
+    <result column="qx" jdbcType="VARCHAR" property="qx" />
+    <result column="whcd" jdbcType="VARCHAR" property="whcd" />
+    <result column="zy" jdbcType="VARCHAR" property="zy" />
+    <result column="fxgw" jdbcType="VARCHAR" property="fxgw" />
+    <result column="sfzsxy" jdbcType="VARCHAR" property="sfzsxy" />
+    <result column="yxzy" jdbcType="VARCHAR" property="yxzy" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="mail" jdbcType="VARCHAR" property="mail" />
+    <result column="dz" jdbcType="VARCHAR" property="dz" />
+    <result column="gxsfkn" jdbcType="VARCHAR" property="gxsfkn" />
+    <result column="klyy" jdbcType="VARCHAR" property="klyy" />
+    <result column="tc" jdbcType="VARCHAR" property="tc" />
+    <result column="cjyy" jdbcType="VARCHAR" property="cjyy" />
+    <result column="zsjz" jdbcType="VARCHAR" property="zsjz" />
+    <result column="zsgd" jdbcType="VARCHAR" property="zsgd" />
+    <result column="sfgy" jdbcType="VARCHAR" property="sfgy" />
+    <result column="gysj" jdbcType="VARCHAR" property="gysj" />
+    <result column="sftgdc" jdbcType="VARCHAR" property="sftgdc" />
+    <result column="qd" jdbcType="VARCHAR" property="qd" />
+    <result column="jl" jdbcType="VARCHAR" property="jl" />
+    <result column="lxy" jdbcType="VARCHAR" property="lxy" />
+    <result column="gxfs" jdbcType="VARCHAR" property="gxfs" />
+    <result column="bz" jdbcType="VARCHAR" property="bz" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, zym, xzbh, xm, xb, xybh, xxfs, csnf, sf, qx, whcd, zy, fxgw, sfzsxy, yxzy, tel, 
+    mail, dz, gxsfkn, klyy, tc, cjyy, zsjz, zsgd, sfgy, gysj, sftgdc, qd, jl, lxy, gxfs, 
+    bz
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from M_XY
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from M_XY
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.lon.personnelmanager.student.entity.Student">
+    insert into M_XY (id, zym, xzbh, 
+      xm, xb, xybh, xxfs, 
+      csnf, sf, qx, whcd, 
+      zy, fxgw, sfzsxy, yxzy, 
+      tel, mail, dz, gxsfkn, 
+      klyy, tc, cjyy, zsjz, 
+      zsgd, sfgy, gysj, sftgdc, 
+      qd, jl, lxy, gxfs, 
+      bz)
+    values (#{id,jdbcType=INTEGER}, #{zym,jdbcType=VARCHAR}, #{xzbh,jdbcType=VARCHAR}, 
+      #{xm,jdbcType=VARCHAR}, #{xb,jdbcType=VARCHAR}, #{xybh,jdbcType=VARCHAR}, #{xxfs,jdbcType=VARCHAR}, 
+      #{csnf,jdbcType=VARCHAR}, #{sf,jdbcType=VARCHAR}, #{qx,jdbcType=VARCHAR}, #{whcd,jdbcType=VARCHAR}, 
+      #{zy,jdbcType=VARCHAR}, #{fxgw,jdbcType=VARCHAR}, #{sfzsxy,jdbcType=VARCHAR}, #{yxzy,jdbcType=VARCHAR}, 
+      #{tel,jdbcType=VARCHAR}, #{mail,jdbcType=VARCHAR}, #{dz,jdbcType=VARCHAR}, #{gxsfkn,jdbcType=VARCHAR}, 
+      #{klyy,jdbcType=VARCHAR}, #{tc,jdbcType=VARCHAR}, #{cjyy,jdbcType=VARCHAR}, #{zsjz,jdbcType=VARCHAR}, 
+      #{zsgd,jdbcType=VARCHAR}, #{sfgy,jdbcType=VARCHAR}, #{gysj,jdbcType=VARCHAR}, #{sftgdc,jdbcType=VARCHAR}, 
+      #{qd,jdbcType=VARCHAR}, #{jl,jdbcType=VARCHAR}, #{lxy,jdbcType=VARCHAR}, #{gxfs,jdbcType=VARCHAR}, 
+      #{bz,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lon.personnelmanager.student.entity.Student">
+    insert into M_XY
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="zym != null">
+        zym,
+      </if>
+      <if test="xzbh != null">
+        xzbh,
+      </if>
+      <if test="xm != null">
+        xm,
+      </if>
+      <if test="xb != null">
+        xb,
+      </if>
+      <if test="xybh != null">
+        xybh,
+      </if>
+      <if test="xxfs != null">
+        xxfs,
+      </if>
+      <if test="csnf != null">
+        csnf,
+      </if>
+      <if test="sf != null">
+        sf,
+      </if>
+      <if test="qx != null">
+        qx,
+      </if>
+      <if test="whcd != null">
+        whcd,
+      </if>
+      <if test="zy != null">
+        zy,
+      </if>
+      <if test="fxgw != null">
+        fxgw,
+      </if>
+      <if test="sfzsxy != null">
+        sfzsxy,
+      </if>
+      <if test="yxzy != null">
+        yxzy,
+      </if>
+      <if test="tel != null">
+        tel,
+      </if>
+      <if test="mail != null">
+        mail,
+      </if>
+      <if test="dz != null">
+        dz,
+      </if>
+      <if test="gxsfkn != null">
+        gxsfkn,
+      </if>
+      <if test="klyy != null">
+        klyy,
+      </if>
+      <if test="tc != null">
+        tc,
+      </if>
+      <if test="cjyy != null">
+        cjyy,
+      </if>
+      <if test="zsjz != null">
+        zsjz,
+      </if>
+      <if test="zsgd != null">
+        zsgd,
+      </if>
+      <if test="sfgy != null">
+        sfgy,
+      </if>
+      <if test="gysj != null">
+        gysj,
+      </if>
+      <if test="sftgdc != null">
+        sftgdc,
+      </if>
+      <if test="qd != null">
+        qd,
+      </if>
+      <if test="jl != null">
+        jl,
+      </if>
+      <if test="lxy != null">
+        lxy,
+      </if>
+      <if test="gxfs != null">
+        gxfs,
+      </if>
+      <if test="bz != null">
+        bz,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="zym != null">
+        #{zym,jdbcType=VARCHAR},
+      </if>
+      <if test="xzbh != null">
+        #{xzbh,jdbcType=VARCHAR},
+      </if>
+      <if test="xm != null">
+        #{xm,jdbcType=VARCHAR},
+      </if>
+      <if test="xb != null">
+        #{xb,jdbcType=VARCHAR},
+      </if>
+      <if test="xybh != null">
+        #{xybh,jdbcType=VARCHAR},
+      </if>
+      <if test="xxfs != null">
+        #{xxfs,jdbcType=VARCHAR},
+      </if>
+      <if test="csnf != null">
+        #{csnf,jdbcType=VARCHAR},
+      </if>
+      <if test="sf != null">
+        #{sf,jdbcType=VARCHAR},
+      </if>
+      <if test="qx != null">
+        #{qx,jdbcType=VARCHAR},
+      </if>
+      <if test="whcd != null">
+        #{whcd,jdbcType=VARCHAR},
+      </if>
+      <if test="zy != null">
+        #{zy,jdbcType=VARCHAR},
+      </if>
+      <if test="fxgw != null">
+        #{fxgw,jdbcType=VARCHAR},
+      </if>
+      <if test="sfzsxy != null">
+        #{sfzsxy,jdbcType=VARCHAR},
+      </if>
+      <if test="yxzy != null">
+        #{yxzy,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="mail != null">
+        #{mail,jdbcType=VARCHAR},
+      </if>
+      <if test="dz != null">
+        #{dz,jdbcType=VARCHAR},
+      </if>
+      <if test="gxsfkn != null">
+        #{gxsfkn,jdbcType=VARCHAR},
+      </if>
+      <if test="klyy != null">
+        #{klyy,jdbcType=VARCHAR},
+      </if>
+      <if test="tc != null">
+        #{tc,jdbcType=VARCHAR},
+      </if>
+      <if test="cjyy != null">
+        #{cjyy,jdbcType=VARCHAR},
+      </if>
+      <if test="zsjz != null">
+        #{zsjz,jdbcType=VARCHAR},
+      </if>
+      <if test="zsgd != null">
+        #{zsgd,jdbcType=VARCHAR},
+      </if>
+      <if test="sfgy != null">
+        #{sfgy,jdbcType=VARCHAR},
+      </if>
+      <if test="gysj != null">
+        #{gysj,jdbcType=VARCHAR},
+      </if>
+      <if test="sftgdc != null">
+        #{sftgdc,jdbcType=VARCHAR},
+      </if>
+      <if test="qd != null">
+        #{qd,jdbcType=VARCHAR},
+      </if>
+      <if test="jl != null">
+        #{jl,jdbcType=VARCHAR},
+      </if>
+      <if test="lxy != null">
+        #{lxy,jdbcType=VARCHAR},
+      </if>
+      <if test="gxfs != null">
+        #{gxfs,jdbcType=VARCHAR},
+      </if>
+      <if test="bz != null">
+        #{bz,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lon.personnelmanager.student.entity.Student">
+    update M_XY
+    <set>
+      <if test="zym != null">
+        zym = #{zym,jdbcType=VARCHAR},
+      </if>
+      <if test="xzbh != null">
+        xzbh = #{xzbh,jdbcType=VARCHAR},
+      </if>
+      <if test="xm != null">
+        xm = #{xm,jdbcType=VARCHAR},
+      </if>
+      <if test="xb != null">
+        xb = #{xb,jdbcType=VARCHAR},
+      </if>
+      <if test="xybh != null">
+        xybh = #{xybh,jdbcType=VARCHAR},
+      </if>
+      <if test="xxfs != null">
+        xxfs = #{xxfs,jdbcType=VARCHAR},
+      </if>
+      <if test="csnf != null">
+        csnf = #{csnf,jdbcType=VARCHAR},
+      </if>
+      <if test="sf != null">
+        sf = #{sf,jdbcType=VARCHAR},
+      </if>
+      <if test="qx != null">
+        qx = #{qx,jdbcType=VARCHAR},
+      </if>
+      <if test="whcd != null">
+        whcd = #{whcd,jdbcType=VARCHAR},
+      </if>
+      <if test="zy != null">
+        zy = #{zy,jdbcType=VARCHAR},
+      </if>
+      <if test="fxgw != null">
+        fxgw = #{fxgw,jdbcType=VARCHAR},
+      </if>
+      <if test="sfzsxy != null">
+        sfzsxy = #{sfzsxy,jdbcType=VARCHAR},
+      </if>
+      <if test="yxzy != null">
+        yxzy = #{yxzy,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        tel = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="mail != null">
+        mail = #{mail,jdbcType=VARCHAR},
+      </if>
+      <if test="dz != null">
+        dz = #{dz,jdbcType=VARCHAR},
+      </if>
+      <if test="gxsfkn != null">
+        gxsfkn = #{gxsfkn,jdbcType=VARCHAR},
+      </if>
+      <if test="klyy != null">
+        klyy = #{klyy,jdbcType=VARCHAR},
+      </if>
+      <if test="tc != null">
+        tc = #{tc,jdbcType=VARCHAR},
+      </if>
+      <if test="cjyy != null">
+        cjyy = #{cjyy,jdbcType=VARCHAR},
+      </if>
+      <if test="zsjz != null">
+        zsjz = #{zsjz,jdbcType=VARCHAR},
+      </if>
+      <if test="zsgd != null">
+        zsgd = #{zsgd,jdbcType=VARCHAR},
+      </if>
+      <if test="sfgy != null">
+        sfgy = #{sfgy,jdbcType=VARCHAR},
+      </if>
+      <if test="gysj != null">
+        gysj = #{gysj,jdbcType=VARCHAR},
+      </if>
+      <if test="sftgdc != null">
+        sftgdc = #{sftgdc,jdbcType=VARCHAR},
+      </if>
+      <if test="qd != null">
+        qd = #{qd,jdbcType=VARCHAR},
+      </if>
+      <if test="jl != null">
+        jl = #{jl,jdbcType=VARCHAR},
+      </if>
+      <if test="lxy != null">
+        lxy = #{lxy,jdbcType=VARCHAR},
+      </if>
+      <if test="gxfs != null">
+        gxfs = #{gxfs,jdbcType=VARCHAR},
+      </if>
+      <if test="bz != null">
+        bz = #{bz,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lon.personnelmanager.student.entity.Student">
+    update M_XY
+    set zym = #{zym,jdbcType=VARCHAR},
+      xzbh = #{xzbh,jdbcType=VARCHAR},
+      xm = #{xm,jdbcType=VARCHAR},
+      xb = #{xb,jdbcType=VARCHAR},
+      xybh = #{xybh,jdbcType=VARCHAR},
+      xxfs = #{xxfs,jdbcType=VARCHAR},
+      csnf = #{csnf,jdbcType=VARCHAR},
+      sf = #{sf,jdbcType=VARCHAR},
+      qx = #{qx,jdbcType=VARCHAR},
+      whcd = #{whcd,jdbcType=VARCHAR},
+      zy = #{zy,jdbcType=VARCHAR},
+      fxgw = #{fxgw,jdbcType=VARCHAR},
+      sfzsxy = #{sfzsxy,jdbcType=VARCHAR},
+      yxzy = #{yxzy,jdbcType=VARCHAR},
+      tel = #{tel,jdbcType=VARCHAR},
+      mail = #{mail,jdbcType=VARCHAR},
+      dz = #{dz,jdbcType=VARCHAR},
+      gxsfkn = #{gxsfkn,jdbcType=VARCHAR},
+      klyy = #{klyy,jdbcType=VARCHAR},
+      tc = #{tc,jdbcType=VARCHAR},
+      cjyy = #{cjyy,jdbcType=VARCHAR},
+      zsjz = #{zsjz,jdbcType=VARCHAR},
+      zsgd = #{zsgd,jdbcType=VARCHAR},
+      sfgy = #{sfgy,jdbcType=VARCHAR},
+      gysj = #{gysj,jdbcType=VARCHAR},
+      sftgdc = #{sftgdc,jdbcType=VARCHAR},
+      qd = #{qd,jdbcType=VARCHAR},
+      jl = #{jl,jdbcType=VARCHAR},
+      lxy = #{lxy,jdbcType=VARCHAR},
+      gxfs = #{gxfs,jdbcType=VARCHAR},
+      bz = #{bz,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+   <select id="getStudentList" parameterType="com.lon.personnelmanager.user.entity.User" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from M_XY
+  </select>
+</mapper>
